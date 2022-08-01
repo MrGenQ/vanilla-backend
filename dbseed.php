@@ -2,7 +2,7 @@
 require 'bootstrap.php';
 
 $statement = <<<EOS
-    CREATE TABLE IF NOT EXISTS person (
+    CREATE TABLE IF NOT EXISTS `user` (
         id INT NOT NULL AUTO_INCREMENT,
         first_name VARCHAR(255) NOT NULL,
         last_name VARCHAR(255) NOT NULL,
