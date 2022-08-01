@@ -212,6 +212,15 @@ class UserController {
         if ($input['password'] !== $input['password_confirm']) {
             return false;
         }
+        if (ctype_lower($input['password'])) {
+            return false;
+        }
+        if (!preg_match('#\d#',$input['password'])){
+            return false;
+        }
+        else{
+
+        }
         return true;
     }
 
@@ -250,6 +259,12 @@ class UserController {
         }
         if($input['password'] !== $input['password_confirm']){
             $errors->password_not_equal = 'Slaptažodiai nesutampa';
+        }
+        if(ctype_lower($input['password'])){
+            $errors->pass_upper = 'Slaptažodyje turi būti didžioji raidė';
+        }
+        if (!preg_match('#\d#',$input['password'])){
+            $errors->pass_num = 'Slaptažodyje turi būti skaičius';
         }
         $response['body'] = json_encode(['data' => ['errors' => $errors]]);
         return $response;
