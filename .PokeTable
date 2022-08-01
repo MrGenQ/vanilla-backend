@@ -1,0 +1,7 @@
+CREATE TABLE `poke` (
+    id INT NOT NULL AUTO_INCREMENT,
+    sender VARCHAR(255) NOT NULL,
+    recipient VARCHAR(255) NOT NULL,
+    date_time DATE NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=INNODB;
